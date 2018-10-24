@@ -1,0 +1,14 @@
+uuid: 9bef83ca-d671-465b-b67f-65ab4de79ec5
+name: badcamp-d8
+mail: badcamp-d8@test.com
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /node
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en
+default_langcode: en
+_core:
+  default_config_hash: yXadRE77Va-G6dxhd2kPYapAvbnSvTF6hO4oXiOEynI

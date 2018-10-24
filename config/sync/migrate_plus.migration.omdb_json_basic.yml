@@ -1,0 +1,47 @@
+uuid: c332bfa8-b6e0-4e50-9c8e-e9751fbed822
+langcode: en
+status: true
+dependencies: {  }
+id: omdb_json_basic
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: json_example
+label: 'JSON feed of movies (basic)'
+source:
+  plugin: url
+  data_fetcher_plugin: http
+  data_parser_plugin: json
+  include_raw_data: true
+  urls: 'http://www.omdbapi.com/?s=space&type=movie&r=json&apikey=86e4b169'
+  item_selector: Search
+  fields:
+    -
+      name: movieName
+      label: 'Movie Name'
+      selector: Title
+    -
+      name: imdbID
+      label: 'IMDB ID'
+      selector: imdbID
+    -
+      name: releaseDate
+      label: 'release date'
+      selector: Year
+  ids:
+    imdbID:
+      type: string
+process:
+  type:
+    plugin: default_value
+    default_value: page
+  title:
+    plugin: concat
+    source:
+      - movieName
+      - releaseDate
+    delimiter: ' - '
+destination:
+  plugin: 'entity:node'
+migration_dependencies: null
